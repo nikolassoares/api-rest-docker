@@ -1,4 +1,4 @@
-FROM maven:3.8.2-jdk-8 as build
+FROM maven:3.8.2-jdk-8 as build-spring
 
 WORKDIR /api-rest-docker
 COPY . .

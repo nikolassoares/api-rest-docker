@@ -9,16 +9,16 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=root
-  web-service:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    ports:
-      - "4000:4000"
-    networks:
-      - spring-boot-mysql-network
-    depends_on:
-      - mysql-service
+#  web-service:
+#    build:
+#      context: ./
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - spring-boot-mysql-network
+#    depends_on:
+#      - mysql-service
 networks:
   spring-boot-mysql-network:
     driver: bridge

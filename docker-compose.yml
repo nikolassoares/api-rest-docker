@@ -1,14 +1,16 @@
 # spring-boot-docker/docker-compose.yml
 version: "3.7"
 services:
-  mysql-service:
+  db:
     image: mysql:5.7
-    networks:
-      - spring-boot-mysql-network
+    volumes:
+      - db_data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: enquete
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
 #  web-service:
 #    build:
 #      context: ./
@@ -19,6 +21,5 @@ services:
 #      - spring-boot-mysql-network
 #    depends_on:
 #      - mysql-service
-networks:
-  spring-boot-mysql-network:
-    driver: bridge
+volumes:
+  db_data:

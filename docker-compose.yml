@@ -7,7 +7,7 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     networks:
-      - myapp-mysql
+      - service-mysql-spring-boot
     environment:
       MYSQL_ROOT_PASSWORD: spring-enquete
       MYSQL_DATABASE: enquete
@@ -18,7 +18,7 @@ services:
   spring-boot-service:
     container_name: spring-boot-service
     networks:
-      - myapp-mysql
+      - service-mysql-spring-boot
     depends_on:
       - db-mysql-service
     build:

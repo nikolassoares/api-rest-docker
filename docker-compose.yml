@@ -1,8 +1,9 @@
 # spring-boot-docker/docker-compose.yml
-version: "3.7"
+version: "3"
 services:
-  db:
+  db-mysql-service:
     image: mysql:5.7
+    container_name: db-mysql-service
     volumes:
       - db_data:/var/lib/mysql
     restart: always
@@ -15,11 +16,12 @@ services:
       MYSQL_PASSWORD: spring-enquete
     ports:
       - "3306:3306"
-  web-service:
+  spring-boot-service:
+    container_name: spring-boot-service
     networks:
       - myapp-mysql
     depends_on:
-      - db
+      - db-mysql-service
     build:
       context: ./
       dockerfile: Dockerfile

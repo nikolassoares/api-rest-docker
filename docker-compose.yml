@@ -34,3 +34,5 @@ services:
       - DATABASE_USER=spring-enquete
 volumes:
   db_data:
+networks:
+  service-mysql-spring-boot:

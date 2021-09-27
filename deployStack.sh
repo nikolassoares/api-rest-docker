@@ -4,8 +4,8 @@ echo "inicializa o cluster swarm"
 
 docker swarm init
 
-docker stack deploy -c docker-compose.yml build
+docker stack deploy -c docker-compose.yml service-mysql-spring-boot
 
-docker stack services build
+docker stack services service-mysql-spring-boot
 
-echo "build rodando localhost:8080"
+echo "service-mysql-spring-boot rodando localhost:8080"

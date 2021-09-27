@@ -13,6 +13,8 @@ services:
       MYSQL_DATABASE: enquete
       MYSQL_USER: spring-enquete
       MYSQL_PASSWORD: spring-enquete
+    ports:
+      - "3306:3306"
   web-service:
     networks:
       - myapp-mysql
